@@ -12,4 +12,4 @@ Do you want to include this software in a paid subscription, sell it to enterpri
 
 We offer a commercial license that grants you full resale rights (typically a royalty agreement).
 
-👉 **[Contact me at samuelayibatarri.t@gmail.com]** to discuss a partnership.
+👉 **Contact me at samuelayibatarri.t@gmail.com** to discuss a partnership.
