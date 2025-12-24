@@ -1,28 +1,23 @@
-"use client";
+import { getQueryClient, trpc } from "@/trpc/server";
+import { Client } from "./client";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
+import { Suspense } from "react";
 
-import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+const Page = async () => {
+  const queryClient = getQueryClient();
 
-const Page = () => {
-  const [users, setUsers] = useState<{id: number; email: string; name: string}[]>([{id: 0, email: "default@email.com", name: "default"}]);
-
-  useEffect(() => {
-    fetch("/api/getUsers")
-      .then(res => res.json())
-      .then(data => setUsers(data))
-      .catch(err => console.error(err));
-  }, []);
-
+  void queryClient.prefetchQuery(trpc.getUsers.queryOptions());
   return (
     <div className="min-h-screen min-w-screen flex items-center justify-center">
-      <p><strong>Name: </strong><span>{users[0].name}</span></p>
-      <br />
-      <br />
-      <p><strong>Email: </strong><span>{users[0].email}</span></p>
-      {/* {JSON.stringify(users)} */}
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <Suspense fallback={<p>Loading...</p>}>
+          <Client />
+        </Suspense>
+         
+      </HydrationBoundary>
+
     </div>
-  );
-};
+  )
+}
 
 export default Page;
