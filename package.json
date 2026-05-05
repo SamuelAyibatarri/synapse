@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:inngest": "inngest-cli dev",
+    "dev:all": "mprocs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -48,6 +50,7 @@
     "cmdk": "^1.1.1",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
+    "inngest": "^4.2.6",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.561.0",
     "next": "16.0.10",
@@ -70,8 +73,11 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "16.0.10",
+    "inngest-cli": "^1.19.1",
+    "mprocs": "^0.9.2",
     "prisma": "6.16.3",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
@@ -82,6 +88,7 @@
     "@prisma/client",
     "@prisma/engines",
     "esbuild",
+    "inngest-cli",
     "prisma",
     "sharp",
     "unrs-resolver"
